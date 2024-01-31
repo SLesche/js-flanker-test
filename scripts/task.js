@@ -123,9 +123,9 @@ function create_feedback(){
       stimulus: function(){
         var last_trial_correct = jsPsych.data.get().last(1).values()[0].accuracy;
         if (last_trial_correct) {
-          return '<p class = "normal-text">Richtig</p>'; 
+          return '<p class = "normal-text"><span style = "color: green">Richtig</span></p>'; 
         } else {
-          return '<p class = "normal-text">Falsch</p>'; 
+          return '<p class = "normal-text"><span style = "color: red">Falsch</span></p>'; 
         }
       },
       choices: "NO_KEYS", // No keys allowed during fixation
@@ -153,7 +153,8 @@ for (let iblock = 0; iblock < n_blocks; iblock++){
     timeline.push(feedback);
     timeline.push(fixation_cross);
   }
-
+  // TODO: screen where people can choose to rerun practice trials#
+  
   for (let itrial = 0; itrial < n_trials; itrial++) {
     const trial = create_flanker_trial(block_stimuli, mapped_responses)
     const fixation_cross = create_fixation_cross(rsi_duration);
