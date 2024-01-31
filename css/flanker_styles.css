@@ -1,0 +1,14 @@
+/* styles.css */
+
+body {
+    background-color: darkgrey;
+    color: white;
+  }
+  
+.flanker-stim {
+    font-size: 60px;
+}
+
+.normal-text {
+    font-size: normal;
+}

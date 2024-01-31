@@ -60,7 +60,7 @@ function create_flanker_trial(block_possible_stimuli, mapped_responses) {
 
   const trial = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: `<p style="font-size:60px;">${current_stimulus}</p>`,
+    stimulus: `<p class = "flanker-stim">${current_stimulus}</p>`,
     choices: possible_response_keys,
     stimulus_duration: stim_duration,
     trial_duration: trial_duration, // Adjust as needed
@@ -96,7 +96,7 @@ function get_block_instruction(mapped_responses){
 
   const block_instruction = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: `<p style="font-size:48px;">${block_instruction_message}</p>`,
+    stimulus: `<p class = "normal-text">${block_instruction_message}</p>`,
     choices: "ALL_KEYS",
     response_ends_trial: true,
     prompt: "Drücke eine beliebige Taste um fortzufahren."
@@ -108,7 +108,7 @@ function get_block_instruction(mapped_responses){
 function create_fixation_cross(fixation_cross_dur){
   const fixation_cross = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: '<div style="font-size: 48px;">+</div>',
+    stimulus: '<div class = "normal-text">+</div>',
     choices: "NO_KEYS", // No keys allowed during fixation
     trial_duration: fixation_cross_dur, // Duration of fixation in milliseconds
     response_ends_trial: false,
@@ -123,9 +123,9 @@ function create_feedback(){
       stimulus: function(){
         var last_trial_correct = jsPsych.data.get().last(1).values()[0].accuracy;
         if (last_trial_correct) {
-          return "<p>Richtig</p>"; 
+          return '<p class = "normal-text">Richtig</p>'; 
         } else {
-          return "<p>Falsch</p>"; 
+          return '<p class = "normal-text">Falsch</p>'; 
         }
       },
       choices: "NO_KEYS", // No keys allowed during fixation
